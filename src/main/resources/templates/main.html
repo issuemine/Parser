@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HTML Parser</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+	</head>
+	<body>
+		<div>
+			<label for="url">URL</label>
+			<input type="text" id="url">
+		</div>
+		<div>
+			<label for="type">Type</label>
+			<select id="type">
+				<option value="TEXT_TYPE">HTML 제외</option>
+				<option value="ALL_TYPE">TEXT 전체</option>
+			</select>
+		</div>
+		<div>
+			<label for="division">출력 묶음 단위</label>
+			<input type="number" id="division">
+			<input type="button" id="make_sorted_word_btn" value="출력">
+		</div>
+		<div>
+			<div>
+				<span>몫 : </span> <span id="quotient_words"></span>
+			</div>
+			<div>
+				<span>나머지 : </span> <span id="remainder_words"></span>
+			</div>
+		</div>
+	</body>
+	<script src="/js/view.js"></script>
+	<script src="/js/presenter.js"></script>
+	<script src="/js/model.js"></script>
+	<script src="/js/observer.js"></script>
+	<script type="text/javascript">
+		(function() {
+			let view = new View();
+			view.setPresenter(new Presenter(view, new Model()));
+			view.init();
+		})();
+	</script>
+</html>
